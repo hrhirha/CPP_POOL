@@ -6,7 +6,7 @@
 /*   By: hrhirha <hrhirha@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 14:29:34 by hrhirha           #+#    #+#             */
-/*   Updated: 2021/04/27 15:07:56 by hrhirha          ###   ########.fr       */
+/*   Updated: 2021/04/28 10:15:56 by hrhirha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ Contact::~Contact(void)
 
 void	Contact::add(void)
 {
-	std::cout << "first name: ";
+	std::cout << "first name*: ";
 	std::getline(std::cin,  first_name);
-	std::cout << "last name: ";
+	std::cout << "last name*: ";
 	std::getline(std::cin, last_name);
 	std::cout << "nickname: ";
 	std::getline(std::cin, nickname);
@@ -42,7 +42,7 @@ void	Contact::add(void)
 	std::getline(std::cin, postal_address);
 	std::cout << "email address: ";
 	std::getline(std::cin, email_address);
-	std::cout << "phone number: ";
+	std::cout << "phone number*: ";
 	std::getline(std::cin, phone_number);
 	std::cout << "birthday date: ";
 	std::getline(std::cin, birthday_date); 

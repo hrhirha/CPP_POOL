@@ -6,7 +6,7 @@
 /*   By: hrhirha <hrhirha@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 15:07:25 by hrhirha           #+#    #+#             */
-/*   Updated: 2021/04/27 15:07:58 by hrhirha          ###   ########.fr       */
+/*   Updated: 2021/04/28 10:24:07 by hrhirha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,19 @@ void	fill_field(std::string s)
 
 int	search(Contact *contacts)
 {
-	std::cout << "     index|first name| last name|  nickname|\n";
+	std::cout << "|     index|first name| last name|  nickname|\n";
+	std::cout << "|––––––––––|––––––––––|––––––––––|––––––––––|\n";
 	if (contacts[0].get("first_name").empty()
-		|| contacts[0].get("last_name").empty()
-		|| contacts[0].get("phone_number").empty())
+			|| contacts[0].get("last_name").empty()
+			|| contacts[0].get("phone_number").empty())
 		return (0);
 	for (int i = 0; i < 8; i++)
 	{
 		if (contacts[i].get("first_name").empty()
-			|| contacts[i].get("last_name").empty()
-			|| contacts[i].get("phone_number").empty())
+				|| contacts[i].get("last_name").empty()
+				|| contacts[i].get("phone_number").empty())
 			break ;
-		std::cout << "         " << i << "|";
+		std::cout << "|         " << i << "|";
 		fill_field(contacts[i].get("first_name"));
 		fill_field(contacts[i].get("last_name"));
 		fill_field(contacts[i].get("nickname"));
@@ -43,11 +44,67 @@ int	search(Contact *contacts)
 	return (1);
 }
 
+int		valid_index(std::string s)
+{
+	int i = 0;
+	if (s[i] == '-' || s[i] == '+') i++;
+	for (; s[i]; i++)
+	{
+		if (s[i] < '0' || s[i] > '9')
+		{
+			std::cout << "Only numeric vlaues allowed.\n";
+			return (0);
+		}
+	}
+	return (1);
+}
+
+void	get_contact_info(Contact *contacts, int i)
+{
+	std::string	s_index;
+	int			index;
+	
+	while (1)
+	{
+		std::cout << "Enter index for more info: ";
+		std::getline(std::cin, s_index);
+		if (!std::cin || s_index.empty()) break ;
+		if (!valid_index(s_index)) continue ;
+		if (s_index.size() > 9)
+		{
+			std::cout << "Too many degits!!\n";
+			continue ;
+		}
+		index = std::stoi(s_index);
+		if (index < 0 || index >= i)
+		{
+			std::cout << "Invalid index, try again.\n";
+			continue ;
+		}
+		else
+			contacts[index].info();
+	}
+}
+
+int	add_contact(Contact *contacts, int *i)
+{
+	if (*i == 8)
+	{
+		std::cout << "PhoneBook is full, you can't add any more contacts\n";
+		return (1);
+	}
+	contacts[*i].add();
+	if (!contacts[*i].get("first_name").empty()
+			&& !contacts[*i].get("last_name").empty()
+			&& !contacts[*i].get("phone_number").empty())
+		*i += 1;
+	return (0);
+}
+
 int	main(void)
 {
 	Contact	contacts[8];
 	int		i;
-	int		index;
 	std::string	command;
 
 	i = 0;
@@ -55,36 +112,22 @@ int	main(void)
 	{
 		std::cout << "Enter a command (ADD, SEARCH, EXIT): ";
 		std::getline(std::cin, command);
+		if (!std::cin)
+		{
+			std::cout << "\n";
+			break ;
+		}
 		if (command == "EXIT")
 			break;
 		else if (command == "ADD")
 		{
-			if (i == 8)
-			{
-				std::cout << "PhoneBook is full, you can't add any more contacts\n";
+			if (!add_contact(contacts, &i))
 				continue ;
-			}
-			contacts[i].add();
-			if (!contacts[i].get("first_name").empty()
-				&& !contacts[i].get("last_name").empty()
-				&& !contacts[i].get("phone_number").empty())
-				i++;
 		}
 		else if (command == "SEARCH")
 		{
 			if (!search(contacts)) continue ;
-			while (1)
-			{
-				std::cout << "Enter index for more info: ";
-				index = std::cin.get();
-				if (index == '\n') break ;
-				index -= 48;
-				if (index < 0 || index >= i)
-					std::cout << "No entry found, try a different index\n";
-				else
-					contacts[index].info();
-				std::cin.ignore(INT_MAX,'\n');
-			}
+			get_contact_info(contacts, i);
 		}
 	}
 }
