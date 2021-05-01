@@ -10,15 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#ifndef BRAIN_HPP
+# define BRAIN_HPP
+# include <iostream>
 
 class	Brain
 {
-//	int	knowledge;
-	
 	public:
 		Brain();
 		~Brain();
 		
 		std::string	identify() const;
 };
+
+#endif

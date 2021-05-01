@@ -24,10 +24,10 @@ Human::~Human()
 
 std::string	Human::identify() const
 {
-	return (this->brain.identify());
+	return (this->_brain.identify());
 }
 
 const Brain	&Human::getBrain() const
 {
-	return (this->brain);
+	return (this->_brain);
 }

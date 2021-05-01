@@ -10,8 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <cstdlib>
+#ifndef ZOMBIE_HPP
+# define ZOMBIE_HPP
+# include <iostream>
+# include <cstdlib>
 
 class	Zombie
 {
@@ -28,3 +30,5 @@ class	Zombie
 		void		setType(std::string);
 		void		announce(void) const;
 };
+
+#endif

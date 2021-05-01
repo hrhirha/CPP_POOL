@@ -19,7 +19,7 @@ ZombieHorde::ZombieHorde(int N)
 							"Albert", "patterson", "White", "Liz", "Chriss"};
 	int	index;
 
-
+	this->_n = N;
 	srand(time(0));
 	this->_z = new Zombie[N];
 	for (int i = 0; i < N; i++)
@@ -45,7 +45,7 @@ void	ZombieHorde::announce() const
 {
 	Zombie		*z = this->getZombie();
 
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < this->_n; i++)
 	{
 		z[i].announce();
 	}

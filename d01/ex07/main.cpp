@@ -21,15 +21,22 @@ int main(int ac, char **av)
 	std::ofstream ofs;
 	std::string s;
 
-	if (ac < 4 || ac > 4 || !*av[2] || !*av[3])
+	if (ac < 4 || ac > 4)
 	{
-		if (!*av[2] || !*av[3])
-			std::cout << "Neither s1 nor s2 can be empty!" << std::endl;
-		else
-			std::cout << "Wrong number of arguments\nusage: ./replace filename s1 s2" << std::endl;
+		std::cout << "Wrong number of arguments\nusage: ./replace filename s1 s2" << std::endl;
+		return (1);
+	}
+	if (!*av[2] || !*av[3])
+	{
+		std::cout << "Neither s1 nor s2 can be empty!" << std::endl;
 		return (1);
 	}
 	ifs.open(av[1]);
+	if (!ifs.is_open())
+	{
+		std::cout << "file not found: " << "`" << av[1] << "'" << std::endl;
+		return (1);
+	}
 	ofs.open((std::string)av[1] + ".replace");
 	while (true)
 	{

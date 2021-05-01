@@ -10,11 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef ZOMBIEHORDE_HPP
+# define ZOMBIEHORDE_HPP
+# include "Zombie.hpp"
 
 class	ZombieHorde
 {
-	Zombie	*_z;
+	private:
+		int		_n;
+		Zombie	*_z;
 	public:
 		ZombieHorde(int);
 		~ZombieHorde();
@@ -22,3 +26,5 @@ class	ZombieHorde
 		Zombie	*getZombie() const;
 		void	announce() const;
 };
+
+#endif

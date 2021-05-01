@@ -10,7 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef ZOMBIEEVENT_HPP
+# define ZOMBIEEVENT_HPP
+# include "Zombie.hpp"
 
 class	ZombieEvent
 {
@@ -21,3 +23,5 @@ class	ZombieEvent
 		void	setZombieType(Zombie &z);
 		Zombie	*newZombie(std::string name);
 };
+
+#endif

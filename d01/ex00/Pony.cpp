@@ -12,7 +12,7 @@
 
 #include "Pony.hpp"
 
-Pony::Pony(std::string s): color(""), height(0)
+Pony::Pony(std::string s): _color(""), _height(0)
 {
 	std::cout << "Pony is Born on the " << s <<"\n";
 }
@@ -24,26 +24,26 @@ Pony::~Pony()
 
 std::string Pony::getColor(void) const
 {
-	return color;
+	return this->_color;
 }
 
 void	Pony::setColor(std::string col)
 {
-	color = col;
+	this->_color = col;
 }
 
 int	Pony::getHeight(void) const
 {
-	return height;
+	return this->_height;
 }
 
 void	Pony::setHeight(int h)
 {
-	height = h;
+	this->_height = h;
 }
 
 void	Pony::saysHi(std::string s)
 {
-	std::cout << "The " << color << " Pony with a height of " << height
+	std::cout << "The " << this->_color << " Pony with a height of " << this->_height
 		<< "cm, says Hi " << s << std::endl;
 }

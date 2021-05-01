@@ -18,11 +18,13 @@
 class	Pony
 {
 	private:
-		std::string	color;
-		int			height;
+		std::string	_color;
+		int			_height;
+
 	public:
 		Pony(std::string s);
 		~Pony();
+
 		std::string	getColor(void) const;
 		void		setColor(std::string col);
 		int			getHeight(void) const;
