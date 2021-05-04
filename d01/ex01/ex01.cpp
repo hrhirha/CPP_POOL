@@ -18,5 +18,4 @@ void	memoryLeak(void)
 	
 	std::cout << *panther << std::endl;
 	delete panther;
-	panther = NULL;
 }

@@ -35,9 +35,6 @@ int	main(void)
 	z.setName("albert");
 	z.announce();
 	std::cout << "\n";
-	for (int i = 0; i < 3; i++)
-	{
-		randomChump();
-	}
+	randomChump();
 	std::cout << "\n";
 }

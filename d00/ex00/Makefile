@@ -6,7 +6,7 @@
 #    By: hrhirha <hrhirha@student.1337.ma>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/19 09:19:49 by hrhirha           #+#    #+#              #
-#    Updated: 2021/04/19 09:27:36 by hrhirha          ###   ########.fr        #
+#    Updated: 2021/04/28 08:36:19 by hrhirha          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,5 +22,7 @@ $(NAME): $(SRC)
 
 clean :
 	@rm -rf $(NAME)
+
+fclean: clean
 
 re: clean $(NAME)

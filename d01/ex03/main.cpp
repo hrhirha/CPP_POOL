@@ -14,7 +14,7 @@
 
 int	main(void)
 {
-	ZombieHorde	zh(4);
+	ZombieHorde	zh(2);
 
 	zh.announce();
 }
