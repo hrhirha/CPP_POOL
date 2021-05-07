@@ -12,10 +12,13 @@
 
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap(): _hp(0), _maxHp(0), _ep(0), _maxEp(0), _lvl(0),
-	_meleeAttDam(0), _rangedAttDam(0), _armorDamRed(0)
+FragTrap::FragTrap(void) {}
+
+FragTrap::FragTrap(std::string name): _hp(100), _maxHp(100),
+	_ep(100), _maxEp(100), _lvl(1), _name(name), _meleeAttDam(30),
+	_rangedAttDam(20), _armorDamRed(5)
 {
-	std::cout << "[default Constructor] " << this->_name << 
+	std::cout << "[Constructor] " << this->_name <<
 		": Let's get this party started!" << std::endl;
 }
 
@@ -23,14 +26,6 @@ FragTrap::FragTrap(FragTrap const &FT)
 {
 	*this = FT;
 	std::cout << "[Copy Constructor] " << this->_name << 
-		": Let's get this party started!" << std::endl;
-}
-
-FragTrap::FragTrap(std::string name): _hp(100), _maxHp(100),
-	_ep(100), _maxEp(100), _lvl(1), _name(name), _meleeAttDam(30),
-	_rangedAttDam(20), _armorDamRed(5)
-{
-	std::cout << "[name Constructor] " << this->_name <<
 		": Let's get this party started!" << std::endl;
 }
 
@@ -58,6 +53,16 @@ FragTrap	&FragTrap::operator =(FragTrap const &FT)
 	return (*this);
 }
 
+int		FragTrap::getHP(void) const
+{
+	return (this->_hp);
+}
+
+int		FragTrap::getEP(void) const
+{
+	return (this->_ep);
+}
+
 void	FragTrap::rangedAttack(std::string const &target)
 {
 	std::cout << "[ranged attack] " << std::endl;
@@ -77,9 +82,12 @@ void	FragTrap::takeDamage(unsigned int amount)
 
 	dam = this->_hp - (amount - this->_armorDamRed);
 	this->_hp = dam <= 0 ? 0 : dam;
+	if (this->_hp >= this->_maxHp) this->_hp = this->_maxHp;
 	std::cout << "[taking damage] " << std::endl;
 	std::cout << this->_name << ": Oh my God, I'm leaking! I think I'm leaking! Ahhhh, \
 I'm leaking! There's oil everywhere!" << std::endl;
+	if (this->_hp == 0)
+		std::cout << "Game Over" << std::endl;
 }
 
 void	FragTrap::beRepaired(unsigned int amount)
@@ -90,7 +98,7 @@ void	FragTrap::beRepaired(unsigned int amount)
 	this->_hp = repair >= this->_maxHp ? this->_maxHp : repair;
 	repair = repair - this->_maxHp <= 0 ? 0 : repair - this->_maxHp;
 
-	repair += this->_ep;
+	repair = this->_ep + amount;
 	this->_ep = repair >= this->_maxEp ? this->_maxEp : repair;
 	std::cout << "[after repair] " << std::endl;
 	std::cout << this->_name << ": Good as new, I think. Am I leaking?"

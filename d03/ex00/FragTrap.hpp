@@ -26,7 +26,6 @@ private:
 	int			_meleeAttDam;
 	int			_rangedAttDam;
 	int			_armorDamRed;
-
 	FragTrap(void);
 
 public:
@@ -36,6 +35,8 @@ public:
 
 	FragTrap	&operator =(FragTrap const &FT);
 
+	int			getHP(void) const;
+	int			getEP(void) const;
 	void		rangedAttack(std::string const &target);
 	void		meleeAttack(std::string const &target);
 	void		takeDamage(unsigned int amount);
