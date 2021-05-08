@@ -46,6 +46,20 @@ FragTrap	&FragTrap::operator =(FragTrap const &FT)
 	return (*this);
 }
 
+void	FragTrap::rangedAttack(std::string const &target)
+{
+	std::cout << "[FragTrap::rangedAttack() Called]" << std::endl;
+	std::cout << this->_name << " attacks " << target << " at RANGE, causing him "
+		<< this->_rangedAttDam << " HP" << std::endl;
+}
+
+void	FragTrap::meleeAttack(std::string const &target)
+{
+	std::cout << "[FragTrap::meleeAttack() Called]" << std::endl;
+	std::cout << this->_name << " melee " << target << " and caused him "
+		<< this->_meleeAttDam << " HP" << std::endl;
+}
+
 void	FragTrap::vaulthunter_dot_exe(std::string const &target)
 {
 	int index;

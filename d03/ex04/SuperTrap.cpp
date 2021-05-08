@@ -10,4 +10,47 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "SuperTrap.hpp"
 
+SuperTrap::SuperTrap(void) {}
+
+SuperTrap::SuperTrap(std::string name):
+	ClapTrap(100, 100, 120, 120, 1, name, 60, 20, 5), FragTrap(name), NinjaTrap(name)
+{
+	std::cout << "[Constructor][SuperTrap]" << std::endl;
+}
+
+SuperTrap::SuperTrap(SuperTrap const &SuT)
+{
+	*this = SuT;
+}
+
+SuperTrap::~SuperTrap()
+{
+	std::cout << "[Destructor][SuperTrap]" << std::endl;
+}
+
+SuperTrap	&SuperTrap::operator =(SuperTrap const &SuT)
+{
+	this->_hp = SuT._hp;
+	this->_maxHp = SuT._maxEp;
+	this->_ep = SuT._ep;
+	this->_maxEp = SuT._maxEp;
+	this->_lvl = SuT._lvl;
+	this->_name = SuT._name;
+	this->_meleeAttDam = SuT._meleeAttDam;
+	this->_rangedAttDam = SuT._rangedAttDam;
+	this->_armorDamRed = SuT._armorDamRed;
+
+	return (*this);
+}
+
+void	SuperTrap::rangedAttack(std::string const &target)
+{
+	FragTrap::rangedAttack(target);
+}
+
+void	SuperTrap::meleeAttack(std::string const &target)
+{
+	NinjaTrap::meleeAttack(target);
+}

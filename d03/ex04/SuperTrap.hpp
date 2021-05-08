@@ -21,13 +21,14 @@ private:
 	SuperTrap(void);
 
 public:
-	SuperTrap(SuperTrap const &FT);
+	SuperTrap(SuperTrap const &SuT);
 	SuperTrap(std::string name);
 	~SuperTrap(void);
 
-	SuperTrap	&operator =(SuperTrap const &FT);
+	SuperTrap	&operator =(SuperTrap const &SuT);
 
-	void		vaulthunter_dot_exe(std::string const &target);
+	void		rangedAttack(std::string const &target);
+	void		meleeAttack(std::string const &target);
 };
 
 #endif

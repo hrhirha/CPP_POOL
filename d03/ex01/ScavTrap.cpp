@@ -18,7 +18,7 @@ ScavTrap::ScavTrap(std::string name): _hp(100), _maxHp(100),
 	_ep(50), _maxEp(50), _lvl(1), _name(name), _meleeAttDam(20),
 	_rangedAttDam(15), _armorDamRed(3)
 {
-	std::cout << "[name Constructor] " << this->_name <<
+	std::cout << "[Constructor] " << this->_name <<
 		": Hey everybody! Check out my package!" << std::endl;
 }
 

@@ -14,9 +14,9 @@
 # define FRAGTRAP_HPP
 # include "ClapTrap.hpp"
 
-class	FragTrap : public ClapTrap
+class	FragTrap : virtual public ClapTrap
 {
-private:
+protected:
 	FragTrap(void);
 
 public:
@@ -26,6 +26,8 @@ public:
 
 	FragTrap	&operator =(FragTrap const &FT);
 
+	void		rangedAttack(std::string const &target);
+	void		meleeAttack(std::string const &target);
 	void		vaulthunter_dot_exe(std::string const &target);
 };
 

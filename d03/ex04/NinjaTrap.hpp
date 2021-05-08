@@ -16,9 +16,9 @@
 # include "FragTrap.hpp"
 #include "ScavTrap.hpp"
 
-class	NinjaTrap : public ClapTrap
+class	NinjaTrap : virtual public ClapTrap
 {
-private:
+protected:
 	NinjaTrap(void);
 
 public:
@@ -27,6 +27,9 @@ public:
 	~NinjaTrap(void);
 
 	NinjaTrap	&operator =(NinjaTrap const &NT);
+
+	void		rangedAttack(std::string const &target);
+	void		meleeAttack(std::string const &target);
 	void		ninjaShoebox(NinjaTrap &NT);
 	void		ninjaShoebox(FragTrap &FT);
 	void		ninjaShoebox(ScavTrap &ST);

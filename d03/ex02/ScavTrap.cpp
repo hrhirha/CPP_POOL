@@ -46,6 +46,19 @@ ScavTrap	&ScavTrap::operator =(ScavTrap const &ST)
 	return (*this);
 }
 
+void	ScavTrap::rangedAttack(std::string const &target)
+{
+	std::cout << "[ranged attack] " << std::endl;
+	std::cout << this->_name << ": Is '" << target << "' dead? Can, can I open my eyes now? " 
+		 << std::endl;
+}
+
+void	ScavTrap::meleeAttack(std::string const &target)
+{
+	std::cout << "[melee attack] " << std::endl;
+	std::cout << this->_name << ": Take that! "<< target << std::endl;
+}
+
 void    ScavTrap::challengeNewcomer(void)
 {
     int index;

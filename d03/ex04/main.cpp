@@ -1,9 +1,12 @@
 #include "FragTrap.hpp"
 #include "ScavTrap.hpp"
 #include "NinjaTrap.hpp"
+#include "SuperTrap.hpp"
 
 int	main(void)
 {
+	// FragTrap
+
 	FragTrap	F1("FR4G-TP1");
 	std::cout << "\n";
 
@@ -21,6 +24,7 @@ int	main(void)
 	F1.beRepaired(120);
 	std::cout << "HP = " << F1.getHP() << "\nEP = " << F1.getEP() << "\n\n";
 	
+	// ScavTrap
 
 	ScavTrap	F2("SC4V-TP1");
 	std::cout << "\n";
@@ -38,6 +42,7 @@ int	main(void)
 	F2.challengeNewcomer();
 	std::cout << "\n";
 
+	// NinjaTrap
 
 	NinjaTrap	F3("N1NJ4-TP1");
 	std::cout << "\n";
@@ -56,4 +61,21 @@ int	main(void)
 	std::cout << "\n";
 	F3.ninjaShoebox(F2);
 	std::cout << "\n";
+
+	// SuperTrap
+
+	SuperTrap Super("SUPER");
+	std::cout << "\n";
+
+	Super.rangedAttack("Skag Pup");
+	std::cout << "\n";
+
+	Super.meleeAttack("Rakk");
+	std::cout << "\n";
+
+	Super.ninjaShoebox(F1);
+	std::cout << "\n";
+
+	Super.vaulthunter_dot_exe("Lava Crab Worm");
+	std::cout << "EP = " << Super.getEP() << "\n\n";
 }
