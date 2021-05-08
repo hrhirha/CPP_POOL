@@ -9,7 +9,7 @@ int	main(void)
 	std::cout << "\n";
 	F1.meleeAttack("Rakk");
 	std::cout << "\n";
-	F1.takeDamage(5);
+	F1.takeDamage(65);
 	std::cout << "HP = " << F1.getHP() << "\n" << std::endl;
 	F1.vaulthunter_dot_exe("Lava Crab Worm");
 	std::cout << "HP = " << F1.getHP() << std::endl;
