@@ -18,6 +18,15 @@ SuperTrap::SuperTrap(std::string name):
 	ClapTrap(100, 100, 120, 120, 1, name, 60, 20, 5), FragTrap(name), NinjaTrap(name)
 {
 	std::cout << "[Constructor][SuperTrap]" << std::endl;
+	std::cout << this->_hp << std::endl;
+	std::cout << this->_maxHp << std::endl;
+	std::cout << this->_ep << std::endl;
+	std::cout << this->_maxEp << std::endl;
+	std::cout << this->_lvl << std::endl;
+	std::cout << this->_name << std::endl;
+	std::cout << this->_meleeAttDam << std::endl;
+	std::cout << this->_rangedAttDam << std::endl;
+	std::cout << this->_armorDamRed << std::endl;
 }
 
 SuperTrap::SuperTrap(SuperTrap const &SuT)

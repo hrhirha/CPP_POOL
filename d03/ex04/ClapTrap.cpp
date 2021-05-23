@@ -66,18 +66,6 @@ std::string	ClapTrap::getName(void) const
 	return (this->_name);
 }
 
-void	ClapTrap::rangedAttack(std::string const &target)
-{
-	std::cout << this->_name << " attacks " << target << " at RANGE, causing him "
-		<< this->_rangedAttDam << " HP" << std::endl;
-}
-
-void	ClapTrap::meleeAttack(std::string const &target)
-{
-	std::cout << this->_name << " melee " << target << " and caused him "
-		<< this->_meleeAttDam << " HP" << std::endl;
-}
-
 void	ClapTrap::takeDamage(unsigned int amount)
 {
 	int dam;

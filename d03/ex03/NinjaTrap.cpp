@@ -46,6 +46,20 @@ NinjaTrap	&NinjaTrap::operator =(NinjaTrap const &NT)
 	return (*this);
 }
 
+void	NinjaTrap::rangedAttack(std::string const &target)
+{
+	std::cout << "[NinjaTrap::rangedAttack() Called]" << std::endl;
+	std::cout << this->_name << " attacks " << target << " at RANGE, causing him "
+		<< this->_rangedAttDam << " HP" << std::endl;
+}
+
+void	NinjaTrap::meleeAttack(std::string const &target)
+{
+	std::cout << "[NinjaTrap::meleeAttack() Called]" << std::endl;
+	std::cout << this->_name << " melee " << target << " and caused him "
+		<< this->_meleeAttDam << " HP" << std::endl;
+}
+
 void	NinjaTrap::ninjaShoebox(NinjaTrap &NT)
 {
 	std::cout << this->_name << " performs a NINJASHOEBOX attack on "

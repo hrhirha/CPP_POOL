@@ -12,7 +12,10 @@
 
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap() {}
+FragTrap::FragTrap()
+{
+	std::cout << "[Default Constructor][FragTrap]" << std::endl;
+}
 
 FragTrap::FragTrap(std::string name):
 	ClapTrap(100, 100, 100, 100, 1, name, 30, 20, 5)

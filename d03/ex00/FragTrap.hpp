@@ -26,6 +26,7 @@ private:
 	int			_meleeAttDam;
 	int			_rangedAttDam;
 	int			_armorDamRed;
+	
 	FragTrap(void);
 
 public:

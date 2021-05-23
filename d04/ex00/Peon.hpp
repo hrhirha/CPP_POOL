@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   Peon.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hrhirha <hrhirha@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/06 13:39:15 by hrhirha           #+#    #+#             */
-/*   Updated: 2021/05/06 13:39:17 by hrhirha          ###   ########.fr       */
+/*   Created: 2021/05/23 15:53:28 by hrhirha           #+#    #+#             */
+/*   Updated: 2021/05/23 17:04:40 by hrhirha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
-# include "ClapTrap.hpp"
+#ifndef PEON_HPP
+# define PEON_HPP
+# include "Victim.hpp"
 
-class	ScavTrap : public ClapTrap
+class	Peon : public Victim
 {
-private:
-	ScavTrap(void);
+	private:
+		Peon();
+	public:
+		Peon(std::string);
+		Peon(Peon const &);
+		virtual ~Peon();
 
-public:
-	ScavTrap(ScavTrap const &ST);
-	ScavTrap(std::string name);
-	~ScavTrap(void);
+		Peon	&operator =(Peon const &);
 
-	ScavTrap	&operator =(ScavTrap const &ST);
-
-	void		rangedAttack(std::string const &target);
-	void		meleeAttack(std::string const &target);
-	void		challengeNewcomer(void);
+		void	getPolymorphed() const;
 };
 
 #endif

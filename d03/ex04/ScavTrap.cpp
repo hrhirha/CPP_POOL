@@ -12,7 +12,10 @@
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap() {}
+ScavTrap::ScavTrap()
+{
+	std::cout << "[Default Constructor][ScavTrap]" << std::endl;
+}
 
 ScavTrap::ScavTrap(std::string name):
 	ClapTrap(100, 100, 50, 50, 1, name, 20, 15, 3)

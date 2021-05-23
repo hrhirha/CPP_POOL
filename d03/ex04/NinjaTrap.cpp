@@ -12,7 +12,10 @@
 
 #include "NinjaTrap.hpp"
 
-NinjaTrap::NinjaTrap() {}
+NinjaTrap::NinjaTrap()
+{
+	std::cout << "[Default Constructor][NinjaTrap]" << std::endl;
+}
 
 NinjaTrap::NinjaTrap(std::string name):
 	ClapTrap(60, 60, 120, 120, 1, name, 60, 5, 0)
@@ -55,7 +58,7 @@ void	NinjaTrap::rangedAttack(std::string const &target)
 
 void	NinjaTrap::meleeAttack(std::string const &target)
 {
-	std::cout << "[NinjaTrap::rangedAttack() Called]" << std::endl;
+	std::cout << "[NinjaTrap::meleeAttack() Called]" << std::endl;
 	std::cout << this->_name << " melee " << target << " and caused him "
 		<< this->_meleeAttDam << " HP" << std::endl;
 }

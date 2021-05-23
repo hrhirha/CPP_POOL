@@ -66,16 +66,17 @@ int	main(void)
 
 	SuperTrap Super("SUPER");
 	std::cout << "\n";
+	SuperTrap starp(Super);
 
-	Super.rangedAttack("Skag Pup");
+	starp.rangedAttack("Skag Pup");
 	std::cout << "\n";
 
-	Super.meleeAttack("Rakk");
+	starp.meleeAttack("Rakk");
 	std::cout << "\n";
 
-	Super.ninjaShoebox(F1);
+	starp.ninjaShoebox(F1);
 	std::cout << "\n";
 
-	Super.vaulthunter_dot_exe("Lava Crab Worm");
-	std::cout << "EP = " << Super.getEP() << "\n\n";
+	starp.vaulthunter_dot_exe("Lava Crab Worm");
+	std::cout << "EP = " << starp.getEP() << "\n\n";
 }

@@ -27,6 +27,9 @@ public:
 	~NinjaTrap(void);
 
 	NinjaTrap	&operator =(NinjaTrap const &NT);
+
+	void		rangedAttack(std::string const &target);
+	void		meleeAttack(std::string const &target);
 	void		ninjaShoebox(NinjaTrap &NT);
 	void		ninjaShoebox(FragTrap &FT);
 	void		ninjaShoebox(ScavTrap &ST);
