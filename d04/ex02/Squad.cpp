@@ -21,14 +21,7 @@ Squad::Squad() : _count(0)
 
 Squad::Squad(Squad const &sq)
 {
-	Units	*tmp;
-
-	tmp = sq._units;
-	while (tmp)
-	{
-		this->push(tmp->sm);
-		tmp = tmp->next;
-	}
+	*this = sq;
 }
 
 Squad::~Squad()
@@ -46,7 +39,24 @@ Squad::~Squad()
 
 Squad	&Squad::operator =(Squad const &sq)
 {
-	(void)sq;
+	Units	*tmp;
+
+	while (this->_units)
+	{
+		tmp = this->_units->next;
+		delete this->_units->sm;
+		delete this->_units;
+		this->_units = tmp;
+	}
+	this->_units = new Units;
+	this->_units->sm = NULL;
+	this->_units->next = NULL;
+	tmp = sq._units;
+	while (tmp)
+	{
+		this->push(tmp->sm->clone());
+		tmp = tmp->next;
+	}
 	return (*this);
 }
 
@@ -85,10 +95,13 @@ int	Squad::push(ISpaceMarine *sm)
 	if (!this->_units->sm)
 	{
 		this->_units->sm = sm;
+		delete new_node;
 		return (++_count);
 	}
+	tmp = this->_units;
+	while (tmp->next) tmp = tmp->next;
 	new_node->sm = sm;
 	new_node->next = NULL;
-	this->_units->next = new_node;
+	tmp->next = new_node;
 	return (++_count);
 }

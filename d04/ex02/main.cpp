@@ -12,11 +12,13 @@ int	main(void)
 
 	ISquad* vlc = new Squad;
 	vlc->push(bob);
-	vlc->push(kriss);
 	vlc->push(jim);
 
+	ISquad	*vld = vlc;
+
+	vld->push(kriss);
+
 	std::cout << std::endl;
-	std::cout << vlc->getCount() << std::endl;
 	for (int i = 0; i < vlc->getCount(); ++i)
 	{
 		ISpaceMarine* cur = vlc->getUnit(i);
