@@ -11,26 +11,29 @@ int	main(void)
 	ISpaceMarine* kriss = new TacticalMarine;
 	ISpaceMarine* john = new AssaultTerminator;
 
-	ISquad	*vlc = new Squad;
+	ISquad* vlc = new Squad;
 	vlc->push(bob);
 	vlc->push(jim);
 
-	ISquad	*vld = new Squad;
+	ISquad	*vlc2 = new Squad;
+	vlc2->push(kriss);
+	vlc2->push(john);
 	
-	vld->push(kriss);
-	vld->push(john);
+	vlc2 = vlc;
 	
-	vld  = vlc;
+	vlc2->push(kriss);
 
 	std::cout << std::endl;
+
+	std::cout << "&vlc		= " << &vlc << "\n";
+	std::cout << "&vlc2		= " << &vlc2 << "\n\n";
 	
-	std::cout << &vlc << " " << &vld << std::endl << std::endl;
-	std::cout << vlc->getUnit(0) << " " << vld->getUnit(0) << std::endl << std::endl;
+	std::cout << "&vlc.unit	= " << vlc->getUnit(0) << "\n";
+	std::cout << "&vlc2.unit	= " << vlc2->getUnit(0) << "\n\n";
 
 	for (int i = 0; i < vlc->getCount(); ++i)
 	{
 		ISpaceMarine* cur = vlc->getUnit(i);
-
 		cur->battleCry();
 		cur->rangedAttack();
 		cur->meleeAttack();

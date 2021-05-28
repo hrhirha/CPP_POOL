@@ -6,7 +6,7 @@
 /*   By: hrhirha <hrhirha@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 15:18:13 by hrhirha           #+#    #+#             */
-/*   Updated: 2021/05/26 17:12:19 by hrhirha          ###   ########.fr       */
+/*   Updated: 2021/05/28 18:08:10 by hrhirha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,16 @@
 
 Squad::Squad() : _count(0)
 {
-	std::cout << "Def Const" << std::endl;
+	std::cout << "Default Constructor\n";
 	this->_units = new Units;
+
 	this->_units->sm = NULL;
 	this->_units->next = NULL;
 }
 
 Squad::Squad(Squad const &sq)
 {
-	std::cout << "Copy Const" << std::endl;
+	std::cout << "Copy Constructor\n";
 	*this = sq;
 }
 
@@ -37,17 +38,13 @@ Squad::~Squad()
 		delete this->_units;
 		this->_units = tmp;
 	}
-}
-
-Units			*Squad::getU() const // Test
-{
-	return (_units);
+	std::cout << "Destructor\n";
 }
 
 Squad	&Squad::operator =(Squad const &sq)
 {
-	std::cout << "Assing op" << std::endl;
-	Units	*tmp;
+	std::cout << "Assignation operator\n";
+	Units	*tmp = sq._units;
 
 	while (this->_units)
 	{
@@ -59,7 +56,6 @@ Squad	&Squad::operator =(Squad const &sq)
 	this->_units = new Units;
 	this->_units->sm = NULL;
 	this->_units->next = NULL;
-	tmp = sq._units;
 	while (tmp)
 	{
 		this->push(tmp->sm->clone());
@@ -95,16 +91,16 @@ int	Squad::push(ISpaceMarine *sm)
 	Units	*tmp = this->_units;
 
 	if (!sm) return (this->_count);
-	while (tmp)
-	{
-		if (tmp->sm == sm) return (this->_count);
-		tmp = tmp->next;
-	}
 	if (!this->_units->sm)
 	{
 		this->_units->sm = sm;
 		delete new_node;
 		return (++_count);
+	}
+	while (tmp)
+	{
+		if (tmp->sm == sm) return (this->_count);
+		tmp = tmp->next;
 	}
 	tmp = this->_units;
 	while (tmp->next) tmp = tmp->next;

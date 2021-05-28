@@ -6,7 +6,7 @@
 /*   By: hrhirha <hrhirha@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 14:52:06 by hrhirha           #+#    #+#             */
-/*   Updated: 2021/05/26 15:10:13 by hrhirha          ###   ########.fr       */
+/*   Updated: 2021/05/28 11:15:06 by hrhirha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,9 @@ TacticalMarine::~TacticalMarine()
 	std::cout << "Aaargh..." << std::endl;
 }
 
-TacticalMarine	&TacticalMarine::operator =(TacticalMarine const &)
+TacticalMarine	&TacticalMarine::operator =(TacticalMarine const &tm)
 {
+	(void)tm;
 	return (*this);
 }
 

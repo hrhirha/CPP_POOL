@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ISquad.hpp                                         :+:      :+:    :+:   */
+/*   Ice.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hrhirha <hrhirha@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/26 14:37:24 by hrhirha           #+#    #+#             */
-/*   Updated: 2021/05/26 14:41:53 by hrhirha          ###   ########.fr       */
+/*   Created: 2021/05/28 18:29:47 by hrhirha           #+#    #+#             */
+/*   Updated: 2021/05/28 18:33:36 by hrhirha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ISQUAD_HPP
-# define ISQUAD_HPP
-# include <iostream>
-# include "ISpaceMarine.hpp"
+#ifndef ICE_HPP
+# define ICE_HPP
+# include "AMateria.hpp"
 
-class	ISquad
+class	Ice : public AMateria
 {
 	public:
-		virtual ~ISquad() {}
-		virtual int getCount() const = 0;
-		virtual ISpaceMarine* getUnit(int) const = 0;
-		virtual int push(ISpaceMarine*) = 0;
+		Ice();
+		Ice(Ice const &);
+		virtual ~Ice();
+
+		Ice	&operator =(Ice const &);
+
+		virtual AMateria	*clone() const;
+		virtual void		use(ICharacter &);
 };
 
 #endif
