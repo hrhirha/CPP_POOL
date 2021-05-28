@@ -27,12 +27,16 @@ int	main(void)
 
 	me->attack(b);
 	std::cout << *me;
+
 	me->equip(pr);
 	std::cout << *me;
+
 	me->attack(b);
 	std::cout << *me;
+
 	me->attack(b);
 	std::cout << *me;
+
 	me->equip(ba);
 	me->attack(b1);
 	std::cout << *me;
