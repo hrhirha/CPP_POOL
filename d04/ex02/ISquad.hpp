@@ -15,12 +15,19 @@
 # include <iostream>
 # include "ISpaceMarine.hpp"
 
+struct	Units
+{
+	ISpaceMarine	*sm;
+	Units			*next;
+};
+
 class	ISquad
 {
 	public:
 		virtual ~ISquad() {}
 		virtual int getCount() const = 0;
 		virtual ISpaceMarine* getUnit(int) const = 0;
+		virtual Units			*getU() const = 0; // Test
 		virtual int push(ISpaceMarine*) = 0;
 };
 

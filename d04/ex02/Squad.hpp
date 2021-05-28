@@ -16,11 +16,11 @@
 # include "TacticalMarine.hpp"
 # include "AssaultTerminator.hpp"
 
-struct	Units
-{
-	ISpaceMarine	*sm;
-	Units			*next;
-};
+// struct	Units
+// {
+// 	ISpaceMarine	*sm;
+// 	Units			*next;
+// };
 
 class	Squad : public ISquad
 {
@@ -36,6 +36,7 @@ class	Squad : public ISquad
 
 		int				getCount() const;
 		ISpaceMarine	*getUnit(int) const;
+		Units			*getU() const; // Test
 		int				push(ISpaceMarine*);
 };
 

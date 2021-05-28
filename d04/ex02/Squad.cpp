@@ -14,6 +14,7 @@
 
 Squad::Squad() : _count(0)
 {
+	std::cout << "Def Const" << std::endl;
 	this->_units = new Units;
 	this->_units->sm = NULL;
 	this->_units->next = NULL;
@@ -21,6 +22,7 @@ Squad::Squad() : _count(0)
 
 Squad::Squad(Squad const &sq)
 {
+	std::cout << "Copy Const" << std::endl;
 	*this = sq;
 }
 
@@ -37,8 +39,14 @@ Squad::~Squad()
 	}
 }
 
+Units			*Squad::getU() const // Test
+{
+	return (_units);
+}
+
 Squad	&Squad::operator =(Squad const &sq)
 {
+	std::cout << "Assing op" << std::endl;
 	Units	*tmp;
 
 	while (this->_units)
