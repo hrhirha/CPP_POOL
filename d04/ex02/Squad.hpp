@@ -6,7 +6,7 @@
 /*   By: hrhirha <hrhirha@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 15:18:10 by hrhirha           #+#    #+#             */
-/*   Updated: 2021/05/28 18:08:36 by hrhirha          ###   ########.fr       */
+/*   Updated: 2021/05/29 17:17:50 by hrhirha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ class	Squad : public ISquad
 
 		int				getCount() const;
 		ISpaceMarine	*getUnit(int) const;
+		Units const		*getUnits() const;
 		int				push(ISpaceMarine*);
 };
 

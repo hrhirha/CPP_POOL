@@ -6,7 +6,7 @@
 /*   By: hrhirha <hrhirha@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 11:45:52 by hrhirha           #+#    #+#             */
-/*   Updated: 2021/05/25 12:35:10 by hrhirha          ###   ########.fr       */
+/*   Updated: 2021/05/29 18:52:23 by hrhirha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ class	AWeapon
 		std::string const	getName() const;
 		int					getAPCost() const;
 		int					getDamage() const;
+
 		virtual void		attack() const = 0;
 };
 

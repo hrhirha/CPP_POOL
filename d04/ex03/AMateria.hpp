@@ -6,7 +6,7 @@
 /*   By: hrhirha <hrhirha@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 18:11:27 by hrhirha           #+#    #+#             */
-/*   Updated: 2021/05/28 18:52:14 by hrhirha          ###   ########.fr       */
+/*   Updated: 2021/05/29 15:36:16 by hrhirha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@
 class	AMateria
 {
 	protected:
-		unsigned int	_xp;
 		std::string		_type;
-	public:
+		unsigned int	_xp;
 		AMateria();
+	public:
 		AMateria(AMateria const &);
 		AMateria(std::string const &);
 		virtual ~AMateria();

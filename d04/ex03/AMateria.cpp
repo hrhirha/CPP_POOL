@@ -6,7 +6,7 @@
 /*   By: hrhirha <hrhirha@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 18:16:20 by hrhirha           #+#    #+#             */
-/*   Updated: 2021/05/28 18:54:01 by hrhirha          ###   ########.fr       */
+/*   Updated: 2021/05/29 15:48:41 by hrhirha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,3 +55,4 @@ void	AMateria::use()
 	this->_xp += 10;
 }
 
+void	AMateria::use(ICharacter &ch) {(void)ch;}

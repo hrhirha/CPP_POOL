@@ -6,7 +6,7 @@
 /*   By: hrhirha <hrhirha@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 15:18:13 by hrhirha           #+#    #+#             */
-/*   Updated: 2021/05/28 18:08:10 by hrhirha          ###   ########.fr       */
+/*   Updated: 2021/05/29 18:43:41 by hrhirha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,12 @@
 
 Squad::Squad() : _count(0)
 {
-	std::cout << "Default Constructor\n";
-	this->_units = new Units;
-
-	this->_units->sm = NULL;
-	this->_units->next = NULL;
+	this->_units = NULL;
 }
 
 Squad::Squad(Squad const &sq)
 {
-	std::cout << "Copy Constructor\n";
+	this->_units = NULL;
 	*this = sq;
 }
 
@@ -38,35 +34,38 @@ Squad::~Squad()
 		delete this->_units;
 		this->_units = tmp;
 	}
-	std::cout << "Destructor\n";
 }
 
 Squad	&Squad::operator =(Squad const &sq)
 {
-	std::cout << "Assignation operator\n";
-	Units	*tmp = sq._units;
+	Units const	*tmp;
 
 	while (this->_units)
 	{
 		tmp = this->_units->next;
 		delete this->_units->sm;
 		delete this->_units;
-		this->_units = tmp;
+		this->_units = (Units *)tmp;
 	}
-	this->_units = new Units;
-	this->_units->sm = NULL;
-	this->_units->next = NULL;
+	this->_units = NULL;
+	this->_count = 0;
+	tmp = sq.getUnits();
 	while (tmp)
 	{
 		this->push(tmp->sm->clone());
 		tmp = tmp->next;
 	}
 	return (*this);
-}
+} 
 
 int	Squad::getCount() const
 {
 	return (_count);
+}
+
+Units const	*Squad::getUnits() const
+{
+	return (this->_units);
 }
 
 ISpaceMarine	*Squad::getUnit(int i) const
@@ -91,10 +90,11 @@ int	Squad::push(ISpaceMarine *sm)
 	Units	*tmp = this->_units;
 
 	if (!sm) return (this->_count);
-	if (!this->_units->sm)
+	if (!this->_units)
 	{
-		this->_units->sm = sm;
-		delete new_node;
+		new_node->sm = sm;
+		new_node->next = NULL;
+		this->_units = new_node;
 		return (++_count);
 	}
 	while (tmp)

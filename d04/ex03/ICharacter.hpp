@@ -6,13 +6,15 @@
 /*   By: hrhirha <hrhirha@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 18:39:18 by hrhirha           #+#    #+#             */
-/*   Updated: 2021/05/28 18:46:43 by hrhirha          ###   ########.fr       */
+/*   Updated: 2021/05/29 16:53:41 by hrhirha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ICHARACTER_HPP
 # define ICHARACTER_HPP
 # include <iostream>
+
+class AMateria;
 
 class	ICharacter
 {

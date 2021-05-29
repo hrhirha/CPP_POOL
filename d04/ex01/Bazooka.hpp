@@ -6,7 +6,7 @@
 /*   By: hrhirha <hrhirha@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 17:08:23 by hrhirha           #+#    #+#             */
-/*   Updated: 2021/05/25 17:09:21 by hrhirha          ###   ########.fr       */
+/*   Updated: 2021/05/29 18:51:12 by hrhirha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 
 class	Bazooka : public AWeapon
 {
-	private:
 	public:
 		Bazooka();
 		Bazooka(Bazooka const &ba);
