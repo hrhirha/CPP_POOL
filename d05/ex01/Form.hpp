@@ -6,7 +6,7 @@
 /*   By: hrhirha <hrhirha@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 15:30:22 by hrhirha           #+#    #+#             */
-/*   Updated: 2021/05/30 18:25:20 by hrhirha          ###   ########.fr       */
+/*   Updated: 2021/06/02 16:16:42 by hrhirha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,7 @@
 # include <iostream>
 # include "Bureaucrat.hpp"
 
-// class	Bureaucrat;
-
+class	Bureaucrat;
 class	Form
 {
 	private:

@@ -6,7 +6,7 @@
 /*   By: hrhirha <hrhirha@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 12:36:22 by hrhirha           #+#    #+#             */
-/*   Updated: 2021/05/31 15:30:33 by hrhirha          ###   ########.fr       */
+/*   Updated: 2021/06/02 16:20:26 by hrhirha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,14 +57,19 @@ void	Bureaucrat::decrementGrade()
 	this->_grade++;
 }
 
-void	Bureaucrat::signForm(std::string fname, bool fsigned)
+void	Bureaucrat::signForm(Form &f)
 {
-	if (fsigned)
-		std::cout << this->_name << " signs " << fname << std::endl;
+	if (f.isSigned() && this->_grade <= f.getGradeToSign())
+		std::cout << this->_name << " signs " << f.getName() << std::endl;
+	else if (this->_grade <= f.getGradeToSign())
+		f.beSigned(*this);
 	else
-		std::cout << this->_name << " cannot sign " << fname
-			<< " because his grade (" << this->_grade << ")"
-			" is lower than the grade required to Sign this form." << std::endl;
+	{
+		std::cout << this->_name << " cannot sign " << f.getName()
+			<< " because his grade (" << this->_grade
+			<< ") is lower than the grade required to Sign this form."
+			<< std::endl;
+	}
 }
 
 void	Bureaucrat::executeForm(Form const &f)

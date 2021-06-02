@@ -6,7 +6,7 @@
 /*   By: hrhirha <hrhirha@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 15:30:24 by hrhirha           #+#    #+#             */
-/*   Updated: 2021/05/31 15:09:42 by hrhirha          ###   ########.fr       */
+/*   Updated: 2021/06/02 16:22:16 by hrhirha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,13 +57,10 @@ bool	Form::isSigned() const
 
 void	Form::beSigned(Bureaucrat &b)
 {
-	if (b.getGrade() <= this->_gradeToSign)
-	{
-		this->_signed = true;
-		b.signForm(this->_name, this->_signed);
-	}
-	else
+	if (b.getGrade() > this->_gradeToSign)
 		throw Form::GradeTooLowException();
+	this->_signed = true;
+	b.signForm(*this);
 }
 
 const char	*Form::GradeTooHighException::what() const throw()

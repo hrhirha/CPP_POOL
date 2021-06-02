@@ -6,7 +6,7 @@
 /*   By: hrhirha <hrhirha@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 19:07:06 by hrhirha           #+#    #+#             */
-/*   Updated: 2021/05/31 15:59:29 by hrhirha          ###   ########.fr       */
+/*   Updated: 2021/06/02 16:39:23 by hrhirha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,53 @@ std::string const	&ShrubberyCreationForm::getTarget() const
 
 void	ShrubberyCreationForm::execute(Bureaucrat const &b) const
 {
-	if (!this->isSigned()) return;
-	if (b.getGrade() > this->getGradeToExec())
+	std::string trees[2];
+	trees[0] = "           \\/ |    |/\n\
+        \\/ / \\||/  /_/___/_\n\
+         \\/   |/ \\/\n\
+    _\\__\\_\\   |  /_____/_\n\
+           \\  | /          /\n\
+  __ _-----`  |{,-----------~\n\
+            \\ }{\n\
+             }{{\n\
+             }}{\n\
+             {{}\n\
+       , -=-~{ .-^- _\n\
+             `}\n\
+              {";
+	trees[1] = "                                              .\n\
+                                   .         ;\n\
+      .              .              ;%     ;;\n\
+        ,           ,                :;%  %;\n\
+         :         ;                   :;%;'     .,\n\
+,.        %;     %;            ;        %;'    ,;\n\
+  ;       ;%;  %%;        ,     %;    ;%;    ,%'\n\
+   %;       %;%;      ,  ;       %;  ;%;   ,%;'\n\
+    ;%;      %;        ;%;        % ;%;  ,%;'\n\
+     `%;.     ;%;     %;'         `;%%;.%;'\n\
+      `:;%.    ;%%. %@;        %; ;@%;%'\n\
+         `:%;.  :;bd%;          %;@%;'\n\
+           `@%:.  :;%.         ;@@%;'\n\
+             `@%.  `;@%.      ;@@%;\n\
+               `@%%. `@%%    ;@@%;\n\
+                 ;@%. :@%%  %@@%;\n\
+                   %@bd%%%bd%%:;\n\
+                     #@%%%%%:;;\n\
+                     %@@%%%::;\n\
+                     %@@@%(o);  . '\n\
+                     %@@@o%;:(.,'\n\
+                 `.. %@@@o%::;\n\
+                    `)@@@o%::;\n\
+                     %@@(o)::;\n\
+                    .%@@@@%::;\n\
+                    ;%@@@@%::;.\n\
+                   ;%@@@@%%:;;;.\n\
+               ...;%@@@@@%%:;;;;,..";
+
+	if (b.getGrade() > this->getGradeToExec() || !this->isSigned())
 		throw Form::ExecPermissionException();
 	std::ofstream o(this->_target + "_shrubbery");
-	o << "ASCII trees" << std::endl;
+	o << trees[0] << std::endl;
+	o << trees[1] << std::endl;
 	o.close();
 }

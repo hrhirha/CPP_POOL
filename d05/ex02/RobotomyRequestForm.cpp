@@ -6,7 +6,7 @@
 /*   By: hrhirha <hrhirha@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 14:38:28 by hrhirha           #+#    #+#             */
-/*   Updated: 2021/05/31 15:58:53 by hrhirha          ###   ########.fr       */
+/*   Updated: 2021/06/02 15:17:15 by hrhirha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,18 @@ std::string const	&RobotomyRequestForm::getTarget() const
 
 void	RobotomyRequestForm::execute(Bureaucrat const &b) const
 {
+	static int	ivar(0);
 	if (!this->isSigned()) return;
 	if (b.getGrade() > this->getGradeToExec())
 	{
-		std::cout << "it’s a failure." << std::endl;
 		throw Form::ExecPermissionException();
 	}
-	std::cout << this->_target << " has been robotomized successfully \
-50% ofthe time." << std::endl;
+	if ((ivar % 2))
+	{
+		std::cout << "VVVVVvvvvvVVvvvvVVV..." << std::endl;
+		std::cout << this->_target << " has been robotomized successfully" << std::endl;
+	}
+	else
+		std::cout << "it’s a failure." << std::endl;
+	ivar++;
 }

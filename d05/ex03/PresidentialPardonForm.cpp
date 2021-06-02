@@ -6,7 +6,7 @@
 /*   By: hrhirha <hrhirha@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 14:46:00 by hrhirha           #+#    #+#             */
-/*   Updated: 2021/05/31 15:59:48 by hrhirha          ###   ########.fr       */
+/*   Updated: 2021/06/02 16:39:51 by hrhirha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,7 @@ std::string const	&PresidentialPardonForm::getTarget() const
 
 void	PresidentialPardonForm::execute(Bureaucrat const &b) const
 {
-	if (!this->isSigned()) return;
-	if (b.getGrade() > this->getGradeToExec())
+	if (b.getGrade() > this->getGradeToExec() || !this->isSigned())
 		throw Form::ExecPermissionException();
 	std::cout << this->_target << " has been pardoned by Zafod Beeblebrox."
 		<< std::endl;

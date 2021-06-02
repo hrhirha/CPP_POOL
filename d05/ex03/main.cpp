@@ -17,12 +17,9 @@ int	main()
 			std::cout << *scf;
 
 			std::cout << '\n';
-			Bureaucrat b0("bob", 150);
+			Bureaucrat b0("bob", 130);
 			b0.incrementGrade();
 			std::cout << b0;
-
-			std::cout << '\n';
-			scf->beSigned(b0);
 
 			std::cout << '\n';
 			b0.executeForm(*scf);
@@ -45,7 +42,7 @@ int	main()
 			std::cout << *rrf;
 
 			std::cout << '\n';
-			Bureaucrat b0("jim", 60);
+			Bureaucrat b0("jim", 40);
 			b0.incrementGrade();
 			std::cout << b0;
 
@@ -78,7 +75,7 @@ int	main()
 			std::cout << b0;
 
 			std::cout << '\n';
-			f0->beSigned(b0);
+			b0.signForm(*f0);
 
 			std::cout << '\n';
 			b0.executeForm(*f0);

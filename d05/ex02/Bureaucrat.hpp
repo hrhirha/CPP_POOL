@@ -6,7 +6,7 @@
 /*   By: hrhirha <hrhirha@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 11:41:33 by hrhirha           #+#    #+#             */
-/*   Updated: 2021/05/31 15:07:18 by hrhirha          ###   ########.fr       */
+/*   Updated: 2021/06/02 16:21:10 by hrhirha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ class	Bureaucrat
 
 		void	incrementGrade();
 		void	decrementGrade();
-		void	signForm(std::string, bool);
+		void	signForm(Form &);
 		void	executeForm(Form const & form);
 
 		class	GradeTooHighException : public std::exception
