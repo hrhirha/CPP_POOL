@@ -5,14 +5,14 @@
 #                                                     +:+ +:+         +:+      #
 #    By: hrhirha <hrhirha@student.1337.ma>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/06/16 17:00:38 by hrhirha           #+#    #+#              #
-#    Updated: 2021/06/16 18:57:48 by hrhirha          ###   ########.fr        #
+#    Created: 2021/06/16 18:57:33 by hrhirha           #+#    #+#              #
+#    Updated: 2021/06/16 18:58:14 by hrhirha          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = identify
+NAME = exec
 CC = clang++ -Wall -Wextra -Werror
-SRCS = main.cpp identify.cpp Base.cpp
+SRCS = main.cpp
 
 all : $(NAME)
 
