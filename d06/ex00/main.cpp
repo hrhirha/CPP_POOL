@@ -6,7 +6,7 @@
 /*   By: hrhirha <hrhirha@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/13 18:47:18 by hrhirha           #+#    #+#             */
-/*   Updated: 2021/06/14 17:09:37 by hrhirha          ###   ########.fr       */
+/*   Updated: 2021/06/16 18:12:37 by hrhirha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,31 +27,16 @@ void	convert(std::string s, dt &dt)
 
 void	display(std::string s, dt &dt)
 {
-	if (s == "+inff" || s == "-inff" || s == "nanf")
-	{
-		std::cout << "char: Impossible\n";
-		std::cout << "int: Impossible\n";
-		std::cout << "float: " << s << '\n';
-		std::cout << "duoble: " << s.substr(0, s.size()-1) << '\n';
-		return ;
-	}
-	else if (s == "+inf" || s == "-inf" || s == "nan")
-	{
-		std::cout << "char: Impossible\n";
-		std::cout << "int: Impossible\n";
-		std::cout << "float: " << s+"f" << '\n';
-		std::cout << "duoble: " << s << '\n';
-		return ;
-	}
+	(void)s;
 	std::cout << "char: ";
 	if (dt.c == -1) std::cout << "Impossible\n";
 	else if (dt.c == 0) std::cout << "Non displayable\n";
 	else std::cout << '\'' << (char)dt.c << "'\n";
 	std::cout << "int: ";
-	if (dt.i == std::numeric_limits<int>::max() + 1) std::cout << "Impossible\n";
+	if (dt.i == std::numeric_limits<int>::min()) std::cout << "Impossible\n";
 	else std::cout << dt.i << '\n';
 	std::cout << "float: ";
-	if (dt.f == std::numeric_limits<float>::max() + 1) std::cout << "Impossible\n";
+	if (dt.f == std::numeric_limits<float>::min()) std::cout << "Impossible\n";
 	else std::cout << dt.f << ((dt.f - (int)dt.f == 0) ? ".0f" : "f") << '\n';
 	std::cout << "double: ";
 	std::cout << dt.d << ((dt.d - (int)dt.d == 0) ? ".0" : "") << '\n';

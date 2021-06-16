@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Base.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hrhirha <hrhirha@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/14 19:09:18 by hrhirha           #+#    #+#             */
-/*   Updated: 2021/06/16 16:02:06 by hrhirha          ###   ########.fr       */
+/*   Created: 2021/06/16 16:08:21 by hrhirha           #+#    #+#             */
+/*   Updated: 2021/06/16 16:55:17 by hrhirha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "serialize.hpp"
+#ifndef BASE_HPP
+# define BASE_HPP
 
-int	main()
+class	Base
 {
-	void	*raw;
-	Data	*data;
-	
-	srand(time(nullptr));
-	raw = serialize();
-	data = deserialize(raw);
+	public:
+		virtual ~Base();
+};
 
-	std::cout << "s1  = "<< data->s1 << '\n';
-	std::cout << "num = "<< data->num << '\n';
-	std::cout << "s2  = "<< data->s2 << '\n';
+Base	*generate(void);
+void	identify_from_pointer(Base *p);
+void	identify_from_reference( Base &p);
 
-	delete reinterpret_cast<char *>(raw);
-	delete data;
-}
+#endif

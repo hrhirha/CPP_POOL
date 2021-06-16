@@ -5,26 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hrhirha <hrhirha@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/14 19:09:18 by hrhirha           #+#    #+#             */
-/*   Updated: 2021/06/16 16:02:06 by hrhirha          ###   ########.fr       */
+/*   Created: 2021/06/16 16:10:41 by hrhirha           #+#    #+#             */
+/*   Updated: 2021/06/16 16:57:00 by hrhirha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "serialize.hpp"
+#include <iostream>
+#include "Base.hpp"
+#include "A.hpp"
+#include "B.hpp"
+#include "C.hpp"
 
 int	main()
 {
-	void	*raw;
-	Data	*data;
-	
-	srand(time(nullptr));
-	raw = serialize();
-	data = deserialize(raw);
+	srand(time(0));
+	Base	*p = generate();
 
-	std::cout << "s1  = "<< data->s1 << '\n';
-	std::cout << "num = "<< data->num << '\n';
-	std::cout << "s2  = "<< data->s2 << '\n';
-
-	delete reinterpret_cast<char *>(raw);
-	delete data;
+	identify_from_pointer(p);
+	identify_from_reference(*p);
 }
