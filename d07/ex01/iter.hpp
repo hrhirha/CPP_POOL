@@ -6,7 +6,7 @@
 /*   By: hrhirha <hrhirha@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 18:59:50 by hrhirha           #+#    #+#             */
-/*   Updated: 2021/06/16 19:10:45 by hrhirha          ###   ########.fr       */
+/*   Updated: 2021/06/17 20:01:00 by hrhirha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,9 @@
 # include <iostream>
 
 template <typename T>
-void	iter(T *t, size_t size, void func(T))
+void	iter(T *t, size_t size, void func(T const &))
 {
-	for (size_t i = 0; i < size; i++)
-	{
-		func(t[i]);
-	}
+	for (size_t i = 0; i < size; i++) func(t[i]);
 }
 
 #endif
