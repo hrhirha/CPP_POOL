@@ -5,33 +5,45 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hrhirha <hrhirha@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/17 16:12:58 by hrhirha           #+#    #+#             */
-/*   Updated: 2021/06/18 10:00:31 by hrhirha          ###   ########.fr       */
+/*   Created: 2021/06/19 14:37:13 by hrhirha           #+#    #+#             */
+/*   Updated: 2021/06/20 15:56:34 by hrhirha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include "Array.hpp"
+#include "mutantstack.hpp"
+#include "mutantstack.cpp"
 
 int	main()
 {
-	Array<int>			arr(8);
-	Array<int> const	arr2(5);
+	MutantStack<int>    mstack;
+	
+	mstack.push(5);
+	mstack.push(17);
 
-	for (unsigned int i = 0; i < arr.size(); i++) arr[i] = i+1;
-	// for (unsigned int i = 0; i < arr2.size(); i++) arr2[i] = i+10;
+	std::cout << mstack.top() << std::endl;
+	
+	mstack.pop();
 
-	for (unsigned int i = 0; i < arr.size(); i++)
-		std::cout << arr[i] << '\n';
+	std::cout << mstack.size() << std::endl;
+	
+	mstack.push(3);
+	mstack.push(5);
+	mstack.push(737);
+	//[...]
+	mstack.push(0);
+	
+	MutantStack<int>::iterator it = mstack.begin();
+	MutantStack<int>::iterator ite = mstack.end();
 
-	for (unsigned int i = 0; i < arr2.size(); i++)
-		std::cout << arr2[i] << '\n';
+	++it;
+	--it;
 
-	try { std::cout << arr[8] << '\n'; }
-	catch (std::exception &e) { std::cout << e.what() << '\n'; }
-
-	// try { std::cout << arr2[0] << '\n'; }
-	// catch (std::exception &e) { std::cout << e.what() << '\n'; }
-
-	return (0);
+	while(it != ite)
+	{
+		std::cout << *it << std::endl;
+		++it;
+	}
+	std::stack<int> s(mstack);
+	return 0;
 }

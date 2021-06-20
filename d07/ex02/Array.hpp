@@ -6,7 +6,7 @@
 /*   By: hrhirha <hrhirha@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 12:56:01 by hrhirha           #+#    #+#             */
-/*   Updated: 2021/06/17 20:44:08 by hrhirha          ###   ########.fr       */
+/*   Updated: 2021/06/18 09:49:56 by hrhirha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,16 @@ class	Array
 		
 		unsigned int size() const { return (this->_n); };
 
-		T	&operator[](unsigned int idx) const
+		T const	&operator[](unsigned int idx) const
 		{
 			if (idx >= this->_n) throw std::exception();
 			return (this->_arr[idx]);
 		};
+		
+		T	&operator [](unsigned int idx)
+		{
+			return (const_cast<T &>(const_cast<const Array*>(this)->operator[](idx)));
+		}
 };
 
 #endif
